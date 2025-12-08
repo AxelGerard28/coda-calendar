@@ -56,13 +56,12 @@
             background-color: #ffffff;
             color: #333333;
         }
-        /* Style du bouton "Accueil" en haut à gauche (VALIDE TOUJOURS) */
         #top-left-home-button {
             position: absolute;
             top: 10px;
             left: 10px;
             padding: 8px 12px;
-            background-color: #000000; /* Rendu plus visible car c'est le seul bouton de validation */
+            background-color: #000000;
             color: white;
             text-decoration: none;
             border-radius: 4px;
@@ -75,10 +74,6 @@
         #top-left-home-button:hover {
             background-color: #333333;
         }
-
-        /* #bottom-home-button a été retiré */
-
-        /* Style du lien "Valider la Date" (redirige vers Shrek) */
         #validate-link {
             display: block;
             width: 100%;
@@ -89,7 +84,7 @@
             text-decoration: none;
             border-radius: 4px;
             font-size: 14px;
-            margin-top: 20px; /* Augmentation de la marge car l'autre bouton a disparu */
+            margin-top: 20px;
             border: 1px solid #cccccc;
             transition: background-color 0.2s;
         }
@@ -198,20 +193,16 @@
 </div>
 
 <script>
-    // Référence aux éléments
     const homeButtonTop = document.getElementById('top-left-home-button');
-    // NOTE : homeButtonBottom n'existe plus et n'est pas référencé.
     const dayInput = document.getElementById('day-select');
     const monthInput = document.getElementById('month-select');
     const yearInput = document.getElementById('year-select');
 
-    // Définition de la date minimale (demain)
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
     const minDate = tomorrow;
 
-    // --- Fonction de validation de la date ---
     function validateDate(e) {
         if (e) e.preventDefault();
 
@@ -219,13 +210,10 @@
         const month = monthInput.value;
         const day = dayInput.value;
 
-        // 1. Vérification des champs remplis
         if (!year || !month || !day || month === 'Mois' || year === 'Année' || day === 'Jour') {
             alert("Veuillez sélectionner le Jour, le Mois et l'Année !");
             return;
         }
-
-        // 2. Vérification de la validité de la date
         const selectedDateString = `${year}-${month}-${day}`;
         const dateObj = new Date(selectedDateString);
 
@@ -233,8 +221,6 @@
             alert("La date sélectionnée est invalide (p. ex., un jour qui n'existe pas dans ce mois) !");
             return;
         }
-
-        // 3. Vérification de la date minimale
         const selectedDateOnly = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
         const minDateOnly = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
 
@@ -244,9 +230,6 @@
             alert("Date sélectionnée valide : " + selectedDateString + ". Retour à l'Accueil.");
         }
     }
-
-    // --- Écouteur d'événements ---
-    // Seul le bouton du haut à gauche déclenche la validation
     homeButtonTop.addEventListener('click', validateDate);
 </script>
 
