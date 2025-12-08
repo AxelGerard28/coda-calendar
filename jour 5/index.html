@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333333;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            border: 1px solid #cccccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #111111;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555555;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .date-select-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .date-select-group select {
+            flex-grow: 1;
+            padding: 10px 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #aaaaaa;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        /* Style du bouton "Accueil" en haut à gauche (VALIDE TOUJOURS) */
+        #top-left-home-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 8px 12px;
+            background-color: #000000; /* Rendu plus visible car c'est le seul bouton de validation */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        #top-left-home-button:hover {
+            background-color: #333333;
+        }
+
+        /* #bottom-home-button a été retiré */
+
+        /* Style du lien "Valider la Date" (redirige vers Shrek) */
+        #validate-link {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #eeeeee;
+            color: #555555;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 20px; /* Augmentation de la marge car l'autre bouton a disparu */
+            border: 1px solid #cccccc;
+            transition: background-color 0.2s;
+        }
+
+        #validate-link:hover {
+            background-color: #dddddd;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <button type="button" id="top-left-home-button">Accueil</button>
+
+    <h1>Calendrier</h1>
+
+    <form id="date-form">
+        <label for="month-select">Sélectionner une date : (Mois, Jour, Année)</label>
+
+        <div class="date-select-group">
+            <select id="month-select" name="month" required>
+                <option value="07">VII</option>
+                <option value="04">IV</option>
+                <option value="11">XI</option>
+                <option value="" disabled selected>Mois</option>
+                <option value="02">II</option>
+                <option value="09">IX</option>
+                <option value="05">V</option>
+                <option value="12">XII</option>
+                <option value="03">III</option>
+                <option value="08">VIII</option>
+                <option value="06">VI</option>
+                <option value="10">X</option>
+                <option value="01">I</option>
+            </select>
+
+            <select id="day-select" name="day" required>
+                <option value="05">5</option>
+                <option value="28">28</option>
+                <option value="12">12</option>
+                <option value="01">1</option>
+                <option value="31">31</option>
+                <option value="18">18</option>
+                <option value="09">9</option>
+                <option value="22">22</option>
+                <option value="15">15</option>
+                <option value="03">3</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+                <option value="08">8</option>
+                <option value="20">20</option>
+                <option value="16">16</option>
+                <option value="04">4</option>
+                <option value="29">29</option>
+                <option value="17">17</option>
+                <option value="06">6</option>
+                <option value="14">14</option>
+                <option value="23">23</option>
+                <option value="30">30</option>
+                <option value="02">2</option>
+                <option value="21">21</option>
+                <option value="19">19</option>
+                <option value="27">27</option>
+                <option value="11">11</option>
+                <option value="13">13</option>
+                <option value="26">26</option>
+                <option value="07">7</option>
+                <option value="24">24</option>
+                <option value="" disabled selected>Jour</option>
+            </select>
+
+            <select id="year-select" name="year" required>
+                <option value="2035">๒๐๓๕</option>
+                <option value="2027">๒๐๒๗</option>
+                <option value="2048">๒๐๔๘</option>
+                <option value="2025">๒๐๒๕</option>
+                <option value="2041">๒๐๔๑</option>
+                <option value="2030">๒๐๓๐</option>
+                <option value="2045">๒๐๔๕</option>
+                <option value="2050">๒๐๕๐</option>
+                <option value="2033">๒๐๓๓</option>
+                <option value="2049">๒๐๔๙</option>
+                <option value="2026">๒๐๒๖</option>
+                <option value="2038">๒๐๓๘</option>
+                <option value="2044">๒๐๔๔</option>
+                <option value="2029">๒๐๒๙</option>
+                <option value="2031">๒๐๓๑</option>
+                <option value="2039">๒๐๓๙</option>
+                <option value="2042">๒๐๔๒</option>
+                <option value="2046">๒๐๔٦</option>
+                <option value="2034">๒๐๓๔</option>
+                <option value="2028">๒๐๒๘</option>
+                <option value="2040">๒๐๔๐</option>
+                <option value="2036">๒๐๓๖</option>
+                <option value="2043">๒๐๔๓</option>
+                <option value="2032">๒๐๓๒</option>
+                <option value="2047">๒๐๔๗</option>
+                <option value="2037">๒๐๓๗</option>
+                <option value="" disabled selected>Année</option>
+            </select>
+        </div>
+
+        <a href="https://www.google.com/search?q=shrek&rlz=1C1CHBD_enFR1186FR1186&oq=shrek&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyDwgBEC4YFBiHAhixAxiABDIPCAIQLhgUGIcCGLEDGIAEMg0IAxAuGIMBGLEDGIAEMgoIBBAAGLEDGIAEMgoIBRAuGLEDGIAEMgcIBhAuGIAEMgoIBxAuGLEDGIAEMgcICBAuGIAEMgcICRAAGIAE0gEIMTA5OWowajeoAgCwAgA&sourceid=chrome&ie=UTF8" id="validate-link">Valider la Date</a>
+    </form>
+</div>
+
+<script>
+    // Référence aux éléments
+    const homeButtonTop = document.getElementById('top-left-home-button');
+    // NOTE : homeButtonBottom n'existe plus et n'est pas référencé.
+    const dayInput = document.getElementById('day-select');
+    const monthInput = document.getElementById('month-select');
+    const yearInput = document.getElementById('year-select');
+
+    // Définition de la date minimale (demain)
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const minDate = tomorrow;
+
+    // --- Fonction de validation de la date ---
+    function validateDate(e) {
+        if (e) e.preventDefault();
+
+        const year = yearInput.value;
+        const month = monthInput.value;
+        const day = dayInput.value;
+
+        // 1. Vérification des champs remplis
+        if (!year || !month || !day || month === 'Mois' || year === 'Année' || day === 'Jour') {
+            alert("Veuillez sélectionner le Jour, le Mois et l'Année !");
+            return;
+        }
+
+        // 2. Vérification de la validité de la date
+        const selectedDateString = `${year}-${month}-${day}`;
+        const dateObj = new Date(selectedDateString);
+
+        if (isNaN(dateObj.getTime()) || dateObj.getDate() != parseInt(day)) {
+            alert("La date sélectionnée est invalide (p. ex., un jour qui n'existe pas dans ce mois) !");
+            return;
+        }
+
+        // 3. Vérification de la date minimale
+        const selectedDateOnly = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
+        const minDateOnly = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate());
+
+        if (selectedDateOnly < minDateOnly) {
+            alert("La date doit être au moins demain !");
+        } else {
+            alert("Date sélectionnée valide : " + selectedDateString + ". Retour à l'Accueil.");
+        }
+    }
+
+    // --- Écouteur d'événements ---
+    // Seul le bouton du haut à gauche déclenche la validation
+    homeButtonTop.addEventListener('click', validateDate);
+</script>
+
+</body>
+</html>
